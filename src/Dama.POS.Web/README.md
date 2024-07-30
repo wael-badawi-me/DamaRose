@@ -15,7 +15,7 @@
 
 ## How to Run
 
-- Update `appsettings.json` to have the correct SQL user and password.
+- Update `appsettings.Development.json` to have the correct SQL user and password.
 
 ```json
   "ConnectionStrings": {
