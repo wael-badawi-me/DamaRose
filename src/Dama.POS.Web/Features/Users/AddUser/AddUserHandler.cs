@@ -12,6 +12,6 @@ public class AddUserHandler(DamaDbContext dbContext) : IRequestHandler<AddUserCo
 
         dbContext.Users.Add(user);
 
-        await dbContext.SaveChangesAsync(cancellationToken);
+        await dbContext.SaveChangesAsync(cancellationToken); // TODO handle duplicate
     }
 }
