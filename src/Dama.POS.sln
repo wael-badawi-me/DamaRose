@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dama.POS.Web", "Dama.POS.We
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{348587AA-8FA9-46B7-BCE3-FAD095CF2AB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dama.POS.DAL", "Dama.POS.DAL\Dama.POS.DAL.csproj", "{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{BF81747B-C5D9-4720-96CB-0D54F747A329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF81747B-C5D9-4720-96CB-0D54F747A329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF81747B-C5D9-4720-96CB-0D54F747A329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BF81747B-C5D9-4720-96CB-0D54F747A329} = {348587AA-8FA9-46B7-BCE3-FAD095CF2AB0}
+		{88F803A0-9944-420C-BBD7-5D57C8B5C2F9} = {348587AA-8FA9-46B7-BCE3-FAD095CF2AB0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D784B30-56E9-4BC9-A682-FCB04CEE5C22}

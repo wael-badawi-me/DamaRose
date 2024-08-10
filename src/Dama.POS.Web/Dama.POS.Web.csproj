@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BTSID" Version="1.0.1" />
     <PackageReference Include="MediatR" Version="12.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
@@ -18,6 +19,10 @@
 
   <ItemGroup>
     <Folder Include="Application\Database\Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dama.POS.DAL\Dama.POS.DAL.csproj" />
   </ItemGroup>
 
 </Project>
