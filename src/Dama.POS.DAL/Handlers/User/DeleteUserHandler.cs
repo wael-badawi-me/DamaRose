@@ -20,7 +20,7 @@ public class DeleteUserHandler : HandlerBase, IRequestHandler<DeleteUserCommand>
             throw new ArgumentException("User with provided Id can't be found");
         }
         Context.Users.Remove(oldUser);
-        await Context.SaveChangesAsync();
+        await Context.SaveChangesAsync(cancellationToken);
     }
 }
 public record DeleteUserCommand(string userId) : IRequest;

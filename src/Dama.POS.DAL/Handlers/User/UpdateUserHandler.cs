@@ -1,9 +1,9 @@
 ﻿namespace Dama.POS.DAL.Handlers.User;
 
 
-public class UpdatetUserHandler : HandlerBase, IRequestHandler<UpdatetUserCommand>
+public class UpdateUserHandler : HandlerBase, IRequestHandler<UpdatetUserCommand>
 {
-    public UpdatetUserHandler(DbContextOptions<DamaRozePosContext> dbContextOptions) : base(dbContextOptions)
+    public UpdateUserHandler(DbContextOptions<DamaRozePosContext> dbContextOptions) : base(dbContextOptions)
     {
     }
 
@@ -24,7 +24,7 @@ public class UpdatetUserHandler : HandlerBase, IRequestHandler<UpdatetUserComman
 
         Context.Entry(await Context.Set<Models.User>().FindAsync(request.user.Id)).State = EntityState.Detached;
         Context.Entry(request.user).State = EntityState.Modified;
-        await Context.SaveChangesAsync();
+        await Context.SaveChangesAsync(cancellationToken);
     }
 }
 public record UpdatetUserCommand(Models.User user, string userId) : IRequest;

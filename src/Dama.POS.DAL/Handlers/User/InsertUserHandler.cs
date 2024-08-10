@@ -12,7 +12,7 @@ public class InsertUserHandler : HandlerBase, IRequestHandler<InsertUserCommand>
         request.user.CreatedBy = request.userId;
         request.user.LastModifiedBy = request.userId;
         Context.Users.Add(request.user);
-        await Context.SaveChangesAsync();
+        await Context.SaveChangesAsync(cancellationToken);
     }
 }
 public record InsertUserCommand(Models.User user, string userId) : IRequest;
