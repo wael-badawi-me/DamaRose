@@ -27,3 +27,10 @@ public class OrderDetail : BaseEntity {
 
     public virtual OrderStatus OrderStatus { get; set; } = new();
 }
+
+public enum OrderDetailsState {
+    Cancelled,
+    Pending,
+    Preparing,
+    Complete,
+}
