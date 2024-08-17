@@ -1,8 +1,6 @@
 ﻿@page "/add-user"
-
+@using Dama.POS.DAL.Entities.Users
 @using MediatR
-@using Dama.POS.DAL.Handlers.Khood
-@using Dama.POS.DAL.Models
 
 @inject IMediator Mediator
 @inject NavigationManager Navigation
@@ -32,19 +30,12 @@
     private async Task Add()
     {
         if (!string.IsNullOrWhiteSpace(newUsername) && !string.IsNullOrWhiteSpace(newPassword)) {
-            try
-            {
-                await Mediator.Send(new SaveTCommand<DAL.Models.User>(
-                new DAL.Models.User() { 
-                    FullName = newUsername,
-                    Password = newPassword,
-                    Email=newUsername,
-                    Photo="/",
-                }, "rr11")
-            );
+
+            try {
+                await Mediator.Send(new AddUserCommand(newUsername, newPassword));
+
             }
-            catch (Exception ex)
-            {
+            catch (Exception) {
                 
                 throw;
             }

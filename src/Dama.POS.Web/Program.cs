@@ -1,4 +1,4 @@
-using Dama.POS.Web.Application;
+using Dama.POS.Web;
 using Dama.POS.Web.Shared;
 
 var builder = WebApplication.CreateBuilder(args);

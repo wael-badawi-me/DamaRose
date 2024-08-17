@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dama.POS.Web", "Dama.POS.We
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{348587AA-8FA9-46B7-BCE3-FAD095CF2AB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dama.POS.DAL", "Dama.POS.DAL\Dama.POS.DAL.csproj", "{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dama.POS.DAL", "Dama.POS.DAL\Dama.POS.DAL.csproj", "{88F803A0-9944-420C-BBD7-5D57C8B5C2F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
