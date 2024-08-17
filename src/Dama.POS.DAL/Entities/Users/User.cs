@@ -5,10 +5,6 @@ public class User : BaseEntity {
 
     public bool IsEnabled { get; private set; }
 
-    public string RoleId { get; private set; } = null!;
-
-    public virtual Role Role { get; set; } = null!;
-
     public static User Create(string Name, string Password)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace("Cannot be null or empty", nameof(Name));

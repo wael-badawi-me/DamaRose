@@ -9,10 +9,12 @@ public class LanguageConfiguration : IEntityTypeConfiguration<Language> {
 
         builder.HasOne(u => u.CreatedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.CreatedById);
+            .HasForeignKey(u => u.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(u => u.LastModifiedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.LastModifiedById);
+            .HasForeignKey(u => u.LastModifiedById)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

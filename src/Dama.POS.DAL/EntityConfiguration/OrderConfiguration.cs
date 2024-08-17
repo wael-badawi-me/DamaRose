@@ -9,11 +9,13 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order> {
 
         builder.HasOne(u => u.CreatedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.CreatedById);
+            .HasForeignKey(u => u.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(u => u.LastModifiedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.LastModifiedById);
+            .HasForeignKey(u => u.LastModifiedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(o => o.OrderStatus)
            .WithMany()

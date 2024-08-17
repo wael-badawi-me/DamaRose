@@ -6,9 +6,7 @@ using Dama.POS.DAL.Entities.Users;
 
 namespace Dama.POS.DAL;
 
-public class DamaRozeDbContext(DbContextOptions<DamaRozeDbContext> options) : DbContext(options)
-{
-
+public class DamaRozeDbContext(DbContextOptions<DamaRozeDbContext> options) : DbContext(options) {
     // Users
     public virtual DbSet<User> Users { get; set; }
     public virtual DbSet<Role> Roles { get; set; }
@@ -37,5 +35,7 @@ public class DamaRozeDbContext(DbContextOptions<DamaRozeDbContext> options) : Db
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(DamaRozeDbContext).Assembly);
+
+        modelBuilder.Entity<User>().HasData(User.Create("Admin", "123"));
     }
 }

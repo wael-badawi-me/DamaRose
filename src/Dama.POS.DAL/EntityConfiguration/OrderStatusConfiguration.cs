@@ -9,16 +9,18 @@ public class OrderStatusConfiguration : IEntityTypeConfiguration<OrderStatus> {
         builder.HasKey(u => u.Id);
 
         builder.HasOne(u => u.CreatedByNavigation)
-            .WithMany()
-            .HasForeignKey(u => u.CreatedById);
+      .WithMany()
+      .HasForeignKey(u => u.CreatedById)
+      .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(u => u.LastModifiedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.LastModifiedById);
+            .HasForeignKey(u => u.LastModifiedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasMany(u => u.Translations)
             .WithOne()
             .HasForeignKey(u => u.EntityId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

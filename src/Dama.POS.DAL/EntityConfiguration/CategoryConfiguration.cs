@@ -10,11 +10,13 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category> {
 
         builder.HasOne(u => u.CreatedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.CreatedById);
+            .HasForeignKey(u => u.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(u => u.LastModifiedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.LastModifiedById);
+            .HasForeignKey(u => u.LastModifiedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(c => c.ParentCategory)
             .WithMany(c => c.ChildCategories)
@@ -29,6 +31,6 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category> {
         builder.HasMany(c => c.Translations)
             .WithOne()
             .HasForeignKey(t => t.EntityId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

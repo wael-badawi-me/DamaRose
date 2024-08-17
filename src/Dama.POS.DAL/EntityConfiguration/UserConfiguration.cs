@@ -10,15 +10,12 @@ public class UserConfiguration : IEntityTypeConfiguration<User> {
 
         builder.HasOne(u => u.CreatedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.CreatedById);
+            .HasForeignKey(u => u.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(u => u.LastModifiedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.LastModifiedById);
-
-        builder.HasOne(u => u.Role)
-            .WithMany()
-            .HasForeignKey(u => u.RoleId)
+            .HasForeignKey(u => u.LastModifiedById)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

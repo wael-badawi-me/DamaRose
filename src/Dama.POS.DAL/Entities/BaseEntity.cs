@@ -9,7 +9,7 @@ public abstract class BaseEntity {
 
     public string? Description { get; protected set; }
 
-    public DateTime CreatedDate { get; private set; }
+    public DateTime CreatedDate { get; protected set; }
 
     public DateTime LastModifiedDate { get; protected set; }
 
@@ -25,5 +25,8 @@ public abstract class BaseEntity {
     {
         Id = NewBase36Number(BTSID.NumberMode.Compressed);
         CreatedDate = DateTime.Now;
+        LastModifiedDate = DateTime.Now;
+        CreatedById = Id;
+        LastModifiedById = Id;
     }
 }

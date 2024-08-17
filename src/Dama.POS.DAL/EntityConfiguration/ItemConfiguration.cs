@@ -10,11 +10,13 @@ public class ItemConfiguration : IEntityTypeConfiguration<Item> {
 
         builder.HasOne(u => u.CreatedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.CreatedById);
+            .HasForeignKey(u => u.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(u => u.LastModifiedByNavigation)
             .WithMany()
-            .HasForeignKey(u => u.LastModifiedById);
+            .HasForeignKey(u => u.LastModifiedById)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(i => i.Category)
                .WithMany(c => c.Items)
@@ -24,7 +26,7 @@ public class ItemConfiguration : IEntityTypeConfiguration<Item> {
         builder.HasMany(i => i.Translations)
             .WithOne()
             .HasForeignKey(t => t.EntityId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(i => i.Location)
             .WithMany()
