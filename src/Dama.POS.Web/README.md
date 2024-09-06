@@ -35,8 +35,6 @@ dotnet ef database update
 
 ### In Visual Studio select `Watch` profile if you want to get hot-reload enabled.
 
-![alt text](image.png)
-
 ## Migrations
 
 > <b>NOTE:</b> You have to be under `Dama.POS.Web` directory

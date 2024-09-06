@@ -1,5 +1,6 @@
-﻿@page "/Users"
+﻿@attribute [StreamRendering(true)]
 
+@using Dama.POS.DAL.Entities.Users
 @using MediatR
 @inject IMediator Mediator
 
@@ -19,7 +20,7 @@ else {
             @foreach (var user in users) {
                 <tr>
                     <td>
-                        <a href="/users/@user.Username">@user.Username</a>
+                        <a href="/users/@user.Name">@user.Name</a>
                     </td>
                 </tr>
             }

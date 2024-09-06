@@ -1,0 +1,76 @@
+﻿@page "/users"
+@using Dama.POS.DAL.Entities.Users
+@using Dama.POS.Web.Component
+@using Dama.POS.Web.Features.Users.EditUser
+@using MediatR
+@inject IMediator Mediator
+
+<PageTitle>User Management</PageTitle>
+
+@* <TopRow Title="Users" BtnText="Add User" OnBtnClick="@OnAddClick" /> *@
+<button type="button" class="btn text-white bg-main" id="btnAddNew" @onclick="@OnAddClick">Add User</button>
+<article class="content px-4">
+    @if (ShowEditForm)
+    {
+        <Dama.POS.Web.Features.Users.UserComponent.UserForm user="user" OnSave="@OnFormSave"  OnCancel="@OnFormCancel" />
+    }
+    <Dama.POS.Web.Features.Users.UserComponent.UserTable OnEdit="(arg)=>OnEdit(arg)" @ref="userTable" />
+
+</article>
+
+@code {
+
+    private User user = new User();
+
+    private bool ShowEditForm = false;
+
+    Dama.POS.Web.Features.Users.UserComponent.UserTable userTable;
+
+    private async Task OnAddClick()
+    {
+        user = new User();
+        // user.photo = "/uploads/users/2022/04/04/649106081.png";
+        // user.IsEnabled = true;
+        ShowEditForm = true;
+        // FormInit();
+    }
+    private async Task OnEdit(string id)
+    {
+       try
+        {
+            // string token = await _tokenProvider.GetTokenAsync();
+            // HttpClient httpclient = _http.CreateClient("SimpleAdmin");
+            // httpclient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            
+            // user= await httpclient.GetFromJsonAsync<UserModel>($"user/getbyid/{id}");
+           user =await Mediator.Send(new GetByIdCommand(id));
+
+            ShowEditForm = true;
+        }
+        catch (Exception ex)
+        {
+            // _toastService.ShowError(@_messages.Value.CriticalError);
+            // var logger = _loggerFactory.CreateLogger<Users>();
+            // logger.Log(LogLevel.Error, ex, "Get User");
+        }
+    }
+
+    private async Task OnFormSave()
+    {
+        FormInit();
+        await userTable.Refresh();
+        
+    }
+    private async Task OnFormCancel()
+    {
+        FormInit();
+    }
+    private void FormInit()
+    {
+        user = null;
+        ShowEditForm = false;
+    }
+}
+
+
+
