@@ -1,4 +1,4 @@
-﻿@page "/Users/{username}"
+﻿@* @page "/Users/{username}" *@
 
 @using Dama.POS.Web.Features.Users.AddUser
 @using MediatR
@@ -30,7 +30,7 @@
     private async Task Edit()
     {
         if (Username != newUsername) {
-            await Mediator.Send(new EditUserCommand(Username, newUsername));
+            // await Mediator.Send(new EditUserCommand(Username, newUsername));
         }
 
         Navigation.NavigateTo("/Users");

@@ -1,9 +1,9 @@
 ﻿namespace Dama.POS.DAL.Entities.Users;
 
 public class User : BaseEntity {
-    public string Password { get; private set; } = null!;
+    public string Password { get;  set; } = null!;
 
-    public bool IsEnabled { get; private set; }
+    public bool IsEnabled { get;  set; }
 
     public static User Create(string Name, string Password)
     {

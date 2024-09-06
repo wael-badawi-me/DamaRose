@@ -3,19 +3,19 @@ using static BTSID.BTSID;
 namespace Dama.POS.DAL.Entities;
 
 public abstract class BaseEntity {
-    public string Id { get; private set; }
+    public string Id { get;  set; }
 
-    public string Name { get; protected set; } = null!;
+    public string Name { get;  set; } = null!;
 
-    public string? Description { get; protected set; }
+    public string? Description { get; set; }
 
-    public DateTime CreatedDate { get; protected set; }
+    public DateTime CreatedDate { get; set; }
 
-    public DateTime LastModifiedDate { get; protected set; }
+    public DateTime LastModifiedDate { get; set; }
 
-    public string CreatedById { get; protected set; } = null!;
+    public string CreatedById { get; set; } = null!;
 
-    public string LastModifiedById { get; protected set; } = null!;
+    public string LastModifiedById { get; set; } = null!;
 
     public virtual User CreatedByNavigation { get; set; } = null!;
 
