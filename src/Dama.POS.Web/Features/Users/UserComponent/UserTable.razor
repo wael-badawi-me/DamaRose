@@ -1,6 +1,7 @@
 ﻿@using Dama.POS.DAL.Entities.Users
 @using Dama.POS.Web.Features.Users.GetUsers
-@using MediatR
+
+
 
 @inject IMediator Mediator
 
@@ -43,7 +44,7 @@
                         <td>@user.Password</td>
                         <td>@user.IsEnabled</td>
                         <td class="optiontd">
-                            <a class="edit" @onclick="()=>Edit(user.Id)" href="" @onclick:preventDefault>
+                        <a class="edit" @onclick="()=>Edit(user.Id)" style="cursor: pointer;">
                                 <i title="edite" class="oi oi-pencil"></i>
                                 </a>
                           </td>

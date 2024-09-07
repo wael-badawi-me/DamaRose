@@ -1,12 +1,12 @@
 ﻿@using Dama.POS.DAL.Entities.Users
 @using Dama.POS.Web.Features.Users.AddUser
-@using MediatR
+
 
 @inject IMediator Mediator
 
 <div class="card" style="margin-bottom:5px;">
     <div class="card-body">
-        <EditForm Model="user" OnValidSubmit="Save" @onreset="@Reset">
+        <EditForm Model="user" @ref="userform" OnValidSubmit="Save" @onreset="@Reset">
             <div class="row">
                 <DataAnnotationsValidator />
                 <input type="hidden" @bind-value="user.Id" />
@@ -78,7 +78,7 @@
         try
         {
             await Mediator.Send(new AddUserCommand(user.Name,user.Password));
-
+            await OnSave.InvokeAsync();
             // var httpclient = _http.CreateClient("SimpleAdmin");
             // httpclient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _tokenProvider.GetTokenAsync());
 

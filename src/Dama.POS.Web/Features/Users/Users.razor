@@ -1,14 +1,14 @@
 ﻿@page "/users"
+@rendermode InteractiveServer
 @using Dama.POS.DAL.Entities.Users
 @using Dama.POS.Web.Component
 @using Dama.POS.Web.Features.Users.EditUser
-@using MediatR
-@inject IMediator Mediator
+
 
 <PageTitle>User Management</PageTitle>
 
-@* <TopRow Title="Users" BtnText="Add User" OnBtnClick="@OnAddClick" /> *@
-<button type="button" class="btn text-white bg-main" id="btnAddNew" @onclick="@OnAddClick">Add User</button>
+<TopRow Title="Users" BtnText="Add User" OnBtnClick="@OnAddClick" />
+
 <article class="content px-4">
     @if (ShowEditForm)
     {
