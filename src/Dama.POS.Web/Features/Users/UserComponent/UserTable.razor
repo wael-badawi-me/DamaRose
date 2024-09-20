@@ -2,7 +2,6 @@
 @using Dama.POS.Web.Features.Users.GetUsers
 
 
-
 @inject IMediator Mediator
 
  @if (users == null)
@@ -15,7 +14,7 @@
             <input id="txtSearch" @bind-value="@filtertxt" type="text"  class="form-control" placeholder="Search..." >
             <div class="input-group-prepend">
                 <div class="input-group-text">
-                    <a href="" @onclick:preventDefault  @onclick="()=>Filter()"><i class="oi oi-magnifying-glass"></i></a>
+                    <a  @onclick:preventDefault  @onclick="()=>Filter()"><i class="oi oi-magnifying-glass"></i></a>
                 </div>
             </div>
       @*       <div class="input-group-prepend">
@@ -88,7 +87,7 @@
     private int pageSize = 10;
     // SimpleAdmin.BlazorUI.Component.Pager pager;
     string filtertxt { set; get; }
-    
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -109,11 +108,11 @@
             // string token = await _tokenProvider.GetTokenAsync();
             // HttpClient httpclient = _http.CreateClient("SimpleAdmin");
             // httpclient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            
+
             // return await httpclient.GetFromJsonAsync<List<UserModel>>($"user/get/{(pageIndex-1)*pageSize}/{pageSize}?{ApiQueryString}");
 
-            return users = await Mediator.Send(new GetUsersQuery());
-            
+            return users = await Mediator.Send(new GetUsersQuery((pageIndex - 1) * pageSize, pageSize, filtertxt));
+
         }
         catch (Exception ex)
         {
